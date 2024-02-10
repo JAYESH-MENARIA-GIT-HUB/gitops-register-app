@@ -22,9 +22,9 @@ pipeline {
         stage("Update the Deployment Tags") {
             steps {
                 sh """
-                   cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
-                   cat deployment.yaml
+                   cat gitops-register-app/deployment.yaml
+                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' gitops-register-app/deployment.yaml
+                   cat gitops-register-app/deployment.yaml
                 """
             }
         }
